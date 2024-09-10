@@ -89,11 +89,15 @@ public class Inventario {
             }
         }
         for (int i = 0; i < listaProductos.length; i++) {
-            if (listaProductos[i][0] == null) {
+            if (listaProductos[i][0] == null && cantidad > 0) {
                 System.out.println("Se ha agregado un nuevo producto al inventario");
                 return addToInventory(listaProductos, id, nombre, cantidad, i);
+            } else if (cantidad < 0){
+                System.out.println("No se pueden agregar cantidades negativos");
+                return listaProductos;
             }
         }
+        System.out.println("No hay espacios en el inventario");
         return listaProductos;
     }
 
